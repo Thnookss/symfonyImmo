@@ -2,7 +2,6 @@
 
 namespace App\Repository;
 
-
 use App\Entity\Property;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -20,6 +19,20 @@ class PropertyRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Property::class);
+    }
+
+    /**
+     * @return Property[] Returns an array of Property objects
+     */
+    public function findPropertyByCategory($slug): array
+    {
+        return $this->createQueryBuilder('p')
+            ->innerJoin('p.category', 'c')
+            ->andWhere('c.slug = :val')
+            ->setParameter('val', $slug)
+            ->getQuery()
+            ->getResult()
+        ;
     }
 
 //    /**

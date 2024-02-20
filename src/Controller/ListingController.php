@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Entity\Category;
+use App\Repository\PropertyRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -10,9 +10,10 @@ use Symfony\Component\Routing\Attribute\Route;
 class ListingController extends AbstractController
 {
     #[Route('/listing/{slug}', name: 'app_listing')]
-    public function index(Category $category): Response
+    public function index(PropertyRepository $property, $slug): Response
     {
-        dd($category);
+        $query = $property->findPropertyByCategory($slug);
+        dd($query);
         return $this->render('listing/index.html.twig', [
             'controller_name' => 'ListingController',
         ]);
