@@ -18,7 +18,7 @@ class UserFixtures extends Fixture
         // $product = new Product();
         // $manager->persist($product);
 
-        for($i = 0; $i < 69; $i++) {
+        for($i = 0; $i < 2; $i++) {
             $user = new User();
             $user->setEmail('test' . $i . '@free.fr');
             $user->setPassword($this->passwordEncoder->hashPassword($user, '0000' . $i));

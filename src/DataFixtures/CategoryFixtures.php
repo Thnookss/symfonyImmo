@@ -27,14 +27,6 @@ class CategoryFixtures extends Fixture
                 'name' => 'Immobilier de prestige',
                 'slug' => 'immobilier-de-prestige',
             ],
-            5 => [
-                'name' => 'Terrains',
-                'slug' => 'terrains',
-            ],
-            6 => [
-                'name' => 'Bureaux & Commerces',
-                'slug' => 'bureaux-commerces',
-            ],
         ];
 
         foreach ($category as $key => $value) {

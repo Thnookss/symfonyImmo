@@ -40,7 +40,9 @@
     </head>
     <body>
         <div id="wrapper">
-            {% include "_partials/_header.html.twig" %}
+            {{
+                render(controller('App\\Controller\\Api\\CategoryController::index'))
+            }}
             {% block body %}{% endblock %}
         </div>
     </body>
