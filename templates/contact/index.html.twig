@@ -3,5 +3,12 @@
 {% block title %}Hello ContactController!{% endblock %}
 
 {% block body %}
+    {% for message in app.flashes('success')  %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+
     {{ form(form) }}
+
 {% endblock %}

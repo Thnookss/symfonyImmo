@@ -81,13 +81,6 @@ class ContactType extends AbstractType {
                     ],
                 ]
             )
-            ->add('rgpd', CheckboxType::class, [
-                'attr' => [
-                    'class' => 'form-check-input'
-                ],
-                'label' => 'J\'accepte la politique de confidentialité',
-                'mapped' => false,
-            ])
             ->add('submit', SubmitType::class, [
                 'label' => 'Send',
                 'attr' => [
