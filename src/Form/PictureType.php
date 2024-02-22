@@ -19,6 +19,12 @@ class PictureType extends AbstractType
             ->add('imageFile', VichImageType::class, [
                 'required' => false,
                 'mapped' => false,
+                'allow_delete' => true,
+                'delete_label' => 'Remove image',
+                'download_label' => 'Download image',
+                'download_uri' => true,
+                'image_uri' => true,
+                'asset_helper' => true,
             ])
         ;
     }

@@ -29,7 +29,7 @@ class Property
     #[ORM\JoinColumn(nullable: false)]
     private ?Category $category = null;
 
-    #[ORM\OneToMany(targetEntity: Pictures::class, mappedBy: 'property')]
+    #[ORM\OneToMany(targetEntity: Pictures::class, mappedBy: 'property',cascade: ["persist"])]
     private Collection $pictures;
 
     public function __construct()
@@ -119,4 +119,5 @@ class Property
 
         return $this;
     }
+
 }

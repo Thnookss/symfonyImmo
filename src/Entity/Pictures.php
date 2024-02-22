@@ -14,6 +14,11 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 #[ORM\HasLifecycleCallbacks]
 class Pictures
 {
+    public function __toString()
+    {
+        return $this->imageName;
+    }
+
     use TimeTrait;
     #[ORM\Id]
     #[ORM\GeneratedValue]
