@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Entity\Traits\TimeTrait;
 use App\Repository\PicturesRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
@@ -9,10 +10,11 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 
 #[ORM\Entity(repositoryClass: PicturesRepository::class)]
-#[ORM\Entity]
 #[Vich\Uploadable]
+#[ORM\HasLifecycleCallbacks]
 class Pictures
 {
+    use TimeTrait;
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -28,9 +30,6 @@ class Pictures
 
     #[ORM\Column(nullable: true)]
     private ?int $imageSize = null;
-
-    #[ORM\Column(nullable: true)]
-    private ?\DateTimeImmutable $updatedAt = null;
 
     #[ORM\ManyToOne(inversedBy: 'pictures')]
     private ?Property $property = null;
